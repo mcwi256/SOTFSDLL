@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{0F628CC1-C66E-453E-9B53-1AB62270D4AE}|maxPayne\\maxPayne.vcxproj|solutionrelative:maxPayne\\dllmain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0F628CC1-C66E-453E-9B53-1AB62270D4AE}|maxPayne\\maxPayne.vcxproj|C:\\Users\\chase\\source\\repos\\maxPayne\\maxPayne\\maxPayne.rc||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0F628CC1-C66E-453E-9B53-1AB62270D4AE}|maxPayne\\maxPayne.vcxproj|solutionrelative:maxPayne\\maxPayne.rc||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0F628CC1-C66E-453E-9B53-1AB62270D4AE}|maxPayne\\maxPayne.vcxproj|C:\\Users\\chase\\source\\repos\\maxPayne\\maxPayne\\resource.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0F628CC1-C66E-453E-9B53-1AB62270D4AE}|maxPayne\\maxPayne.vcxproj|solutionrelative:maxPayne\\resource.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0F628CC1-C66E-453E-9B53-1AB62270D4AE}|maxPayne\\maxPayne.vcxproj|C:\\Users\\chase\\source\\repos\\maxPayne\\maxPayne\\maxPayne.rc||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0F628CC1-C66E-453E-9B53-1AB62270D4AE}|maxPayne\\maxPayne.vcxproj|solutionrelative:maxPayne\\maxPayne.rc||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0F628CC1-C66E-453E-9B53-1AB62270D4AE}|maxPayne\\maxPayne.vcxproj|C:\\Users\\chase\\source\\repos\\maxPayne\\maxPayne\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -53,7 +53,7 @@
               "RelativeDocumentMoniker": "maxPayne\\dllmain.cpp",
               "ToolTip": "C:\\Users\\chase\\source\\repos\\maxPayne\\maxPayne\\dllmain.cpp",
               "RelativeToolTip": "maxPayne\\dllmain.cpp",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAADQAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAALUAAAAAAAAAAAAAAN4AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-12T07:55:34.426Z",
               "IsPinned": true,
@@ -81,31 +81,34 @@
               "RelativeToolTip": "maxPayne\\pch.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-01T12:14:09.392Z"
+              "WhenOpened": "2024-11-01T12:14:09.392Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "resource.h",
               "DocumentMoniker": "C:\\Users\\chase\\source\\repos\\maxPayne\\maxPayne\\resource.h",
               "RelativeDocumentMoniker": "maxPayne\\resource.h",
               "ToolTip": "C:\\Users\\chase\\source\\repos\\maxPayne\\maxPayne\\resource.h",
               "RelativeToolTip": "maxPayne\\resource.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-01T07:00:26.688Z"
+              "WhenOpened": "2024-11-01T07:00:26.688Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "maxPayne.rc",
               "DocumentMoniker": "C:\\Users\\chase\\source\\repos\\maxPayne\\maxPayne\\maxPayne.rc",
               "RelativeDocumentMoniker": "maxPayne\\maxPayne.rc",
               "ToolTip": "C:\\Users\\chase\\source\\repos\\maxPayne\\maxPayne\\maxPayne.rc",
               "RelativeToolTip": "maxPayne\\maxPayne.rc",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2024-11-01T07:00:06.702Z"
+              "WhenOpened": "2024-11-01T07:00:06.702Z",
+              "EditorCaption": ""
             }
           ]
         }

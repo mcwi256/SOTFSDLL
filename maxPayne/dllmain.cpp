@@ -150,6 +150,48 @@ bool dllStartup() {
     return true;
 }
 
+// Function for handling all timer-specific actions during Max Payne mode.
+void payneClock(float ogAlpha, float* vignetteAlpha) {
+    int duration_ms = 15000; // 15 seconds
+    int rampUpDuration_ms = 250; // 1 second
+    int rampDownDuration_ms = 250; // 1 second
+
+    float targetVignetteAlpha = 1.0f;  // TEST
+
+    // Get the current time point & calculate interpolation times & end time.
+    auto start_time = std::chrono::high_resolution_clock::now();
+    auto end_time = start_time + std::chrono::milliseconds(duration_ms);
+    auto ramp_up_end_time = start_time + std::chrono::milliseconds(rampUpDuration_ms);
+    auto ramp_down_start_time = end_time - std::chrono::milliseconds(rampDownDuration_ms);
+
+    // Gradually increase vignetteAlpha to 1.0 over the first second (allows for smooth transition).
+    while (std::chrono::high_resolution_clock::now() < ramp_up_end_time) {
+
+        auto now = std::chrono::high_resolution_clock::now();
+        float elapsed = std::chrono::duration<float>(now - start_time).count(); // Time in seconds.
+        *vignetteAlpha = ogAlpha + (targetVignetteAlpha - ogAlpha) * (elapsed / 1.0f); // Linear interpolation.
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+
+    // Ensure vignetteAlpha is set to 1.0 after ramp up.
+    *vignetteAlpha = targetVignetteAlpha;
+
+    // Main timer loop for the bulk of remaining time.
+    while (std::chrono::high_resolution_clock::now() < ramp_down_start_time) {
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Sleep for 100ms to avoid busy waiting
+    }
+
+    // Gradually decrease vignetteAlpha back to default during last second.
+    while (std::chrono::high_resolution_clock::now() < end_time) {
+
+        auto now = std::chrono::high_resolution_clock::now();
+        float elapsed = std::chrono::duration<float>(now - ramp_down_start_time).count(); // Time in seconds.
+        *vignetteAlpha = targetVignetteAlpha - (targetVignetteAlpha - ogAlpha) * (elapsed / 1.0f); // Linear interpolation.
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+}
+
 // Function for controlling max payne functionality.
 void maxPayne(defaultVals defV, newVals newV, HMODULE ds2Add, UINT64 GameManagerImp) {
     float* camSpeed = (float*)((UINT64)ds2Add + 0x10ACB0C);
@@ -160,26 +202,16 @@ void maxPayne(defaultVals defV, newVals newV, HMODULE ds2Add, UINT64 GameManager
 
     // Record original vignetteAlpha & playerSpeed values.
     float ogAlpha = *vignetteAlpha;
-    float ogSpeed = 1.0f;
+    float ogSpeed = *playerSpeed;
 
-    // Change speed & vignetteAlpha values to max payne mode, play sound, and start timer.
+    // Change speed & vignetteAlpha values to max payne mode, & play sound.
     *camSpeed = newV.getPayneCamSpeed();
     *gameSpeed = newV.getPayneGameSpeed();
-    *vignetteAlpha = 1.0f;
     *playerSpeed = 1.75f;
     PlaySound(MAKEINTRESOURCE(IDR_SOUND1), GetModuleHandleA("maxPayne.dll"), SND_RESOURCE | SND_ASYNC);
 
-    int duration_ms = 15000; // 15 seconds
-
-    // Get the current time point & calculate end time point.
-    auto start_time = std::chrono::high_resolution_clock::now();
-    auto end_time = start_time + std::chrono::milliseconds(duration_ms);
-
-    // Wait until the specified duration has passed. Extra stuff can be put in here that happens each clock tick.
-    while (std::chrono::high_resolution_clock::now() < end_time) {
- 
-        std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Sleep for 100ms to avoid busy waiting
-    }
+    // Start timer.
+    payneClock(ogAlpha, vignetteAlpha);
 
     // Change speed & vignetteAlpha values back to default.
     *camSpeed = defV.getDefaultCamSpeed();
